@@ -28,14 +28,17 @@
           <h1>
             <div id="search-city"></div>
 
-            <img src="icons/cloud-sun.png" class="cloud-sun main" /> <br />
+            <img src="icons/cloud-sun.png" class="cloud-sun main" id="icon" />
           </h1>
-          <div class="temperature" id="temperature">
-            <span class="degrees" id="degrees"></span>
-            <span class="units">
-              <a href="#" id="celcius-link">℃</a>|
-              <a href="#" id="fahrenheit-link">℉</a></span
-            >
+          <div class="weather-temperature">
+            <div class="degrees" id="degrees">
+              <strong class="temperature" id="temperature"></strong>
+
+              <span class="units">
+                <a href="#" id="celcius-link">℃</a>|
+                <a href="#" id="fahrenheit-link">℉</a>
+              </span>
+            </div>
           </div>
 
           <small> Thursday 5 January </small>
@@ -116,12 +119,13 @@
 
           <div class="row highlights">
             <div class="col-3 highlights">
-              High
-              <div class="value" id="high">+14℃</div>
+              Highd
+              <div class="value"><span id="high">+14</span>℃</div>
             </div>
             <div class="col-3 highlights">
               Precipitation
-              <div class="value" id="precipitation">0%</div>
+              <div class="value" id="precipitation"></div>
+              %
             </div>
             <div class="col-3 highlights">
               Sunset
@@ -129,11 +133,11 @@
             </div>
             <div class="col-3 highlights">
               Low
-              <div class="value" id="low">+6℃</div>
+              <div class="value"><span id="low">+6</span>℃</div>
             </div>
             <div class="col-3 highlights">
               Feels like
-              <div class="value" id="feels-like"></div>
+              <div class="value"><span id="feels-like"></span>℃</div>
             </div>
             <div class="col-3 highlights">
               Sunrise
@@ -143,15 +147,6 @@
         </div>
       </div>
     </div>
-    <p class="signature">
-      <a
-        href="https://codesandbox.io/s/old1x0?file=/src/styles.css:340-352"
-        target="_blank"
-        class="coode-link"
-        >Open Source code</a
-      >
-      by Tasha Berezhko
-    </p>
     <script src="src/script.js"></script>
   </body>
 </html>

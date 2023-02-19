@@ -29,8 +29,9 @@ small.innerHTML = `${day} ${hours}:${minutes}`;
 //2
 function displayWeather(response) {
   console.log(response);
+
   document.querySelector("#search-city").innerHTML = response.data.name;
-  document.querySelector("#degrees").innerHTML = Math.round(
+  document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -39,16 +40,35 @@ function displayWeather(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
+  document.querySelector("#high").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#low").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+
+  let iconElement = document.querySelector("#icon");
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function search(city) {
-  let apiKey = "fb1250e0eebcdc69046fdc8c3950c89f";
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e8dec81490f528b6b7847357fa83bb2a&units=metric`;
+  let apiKey = "e8dec81490f528b6b7847357fa83bb2a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 
-function searchCity() {
+function searchCity(event) {
   let city = document.querySelector("#search-input").value;
 
   search(city);
@@ -57,29 +77,28 @@ function searchCity() {
 let form = document.querySelector("#search");
 form.addEventListener("submit", searchCity);
 
-//3
+//change units
 
-function changeMetricF(event) {
+function displayFahrenhaitTemperature(event) {
   event.preventDefault();
-  let degreesElement = document.querySelector("#degrees");
-  let degrees = degreesElement.innerHTML;
-  degrees = Number(degrees);
-  degreesElement.innerHTML = Math.round((degrees * 9) / 5 + 32);
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenhaitLink = document.querySelector("#fahrenheit-link");
-fahrenhaitLink.addEventListener("click", changeMetricF);
+fahrenhaitLink.addEventListener("click", displayFahrenhaitTemperature);
 
-function changeMetricC(event) {
+function displayCelsiusTemperature(event) {
   event.preventDefault();
-  let degreesElement = document.querySelector("#degrees");
-  let degrees = degreesElement.innerHTML;
-  degrees = Number(degrees);
-  degreesElement.innerHTML = Math.round(((degrees - 32) * 5) / 9);
+  let temperatureElement = document.querySelector("#temperature");
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+let celsiusTemperature = null;
 
 let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", changeMetricC);
+celciusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Shanghai");
 
