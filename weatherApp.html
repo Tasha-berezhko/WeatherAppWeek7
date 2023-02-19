@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500&family=Roboto+Serif:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    </style>
+
+    <link rel="stylesheet" href="src/style.css" />
+
+    <title>Weather Today</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-3 main">
+          <h1>
+            <div id="search-city"></div>
+
+            <img src="icons/cloud-sun.png" class="cloud-sun main" id="icon" />
+          </h1>
+          <div class="weather-temperature">
+            <div class="degrees" id="degrees">
+              <strong class="temperature" id="temperature"></strong>
+
+              <span class="units">
+                <a href="#" id="celcius-link">℃</a>|
+                <a href="#" id="fahrenheit-link">℉</a>
+              </span>
+            </div>
+          </div>
+
+          <small> Thursday 5 January </small>
+
+          <hr />
+
+          <div class="adds">
+            <div class="w-icons">
+              <img src="icons/cloud.png" class="adds-icon" />
+              <span id="description"></span>
+              <br />
+              <img src="icons/wind.png" class="adds-icon" />
+              Wind: <span id="wind"></span> km/h
+            </div>
+
+            Humidity <span id="humidity"></span>%
+            <br />
+            Pressure: <span id="pressure"></span> mmHg
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="links">
+            <a href=""> Beijing </a>
+            <a href=""> Guangzhou </a>
+            <a href=""> Chendu </a>
+            <a href=""> Wuhan </a>
+          </div>
+          <br />
+          <form id="search">
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Type a city..."
+              class="w-50"
+            />
+
+            <input type="submit" class="btn" value="Search" />
+            <button type="button" class="btn" id="current-location">
+              Current
+            </button>
+          </form>
+
+          <div class="option">
+            <span class="option 1"> Today</span>
+            <span class="option 2"> 5 Days</span>
+          </div>
+
+          <div class="row days">
+            <div class="col days">
+              Fri
+              <img src="icons/cloud-sun.png" class="other" />
+              +14/+6
+            </div>
+            <div class="col days">
+              Sat
+              <img src="icons/sun.png" class="other" />
+              +4/+13
+            </div>
+            <div class="col days">
+              Sun
+              <img src="icons/sun.png" class="other" />
+              +3/+16
+            </div>
+            <div class="col days">
+              Mon
+              <img src="icons/cloud-sun.png" class="other" />
+              +4/15
+            </div>
+            <div class="col days">
+              Tue
+              <img src="icons/cloud-sun.png" class="other" />
+              +5/+11
+            </div>
+          </div>
+
+          <p>Today's Highlights</p>
+
+          <div class="row highlights">
+            <div class="col-3 highlights">
+              Highd
+              <div class="value"><span id="high">+14</span>℃</div>
+            </div>
+            <div class="col-3 highlights">
+              Precipitation
+              <div class="value" id="precipitation"></div>
+              %
+            </div>
+            <div class="col-3 highlights">
+              Sunset
+              <div class="value" id="sunset">17:04</div>
+            </div>
+            <div class="col-3 highlights">
+              Low
+              <div class="value"><span id="low">+6</span>℃</div>
+            </div>
+            <div class="col-3 highlights">
+              Feels like
+              <div class="value"><span id="feels-like"></span>℃</div>
+            </div>
+            <div class="col-3 highlights">
+              Sunrise
+              <div class="value" id="sunrise">06:53</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
