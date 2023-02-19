@@ -166,3 +166,6 @@ span.option:hover {
   font-size: 16px;
   top: -34px;
 }
+.signature {
+  text-align: center;
+}
