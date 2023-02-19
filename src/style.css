@@ -1,0 +1,161 @@
+body {
+  margin: 50px;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(90, 98, 117);
+  font-family: "Roboto Flex", sans-serif;
+  line-height: 50px;
+  font-weight: 300;
+  font-size: 50px;
+}
+p {
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+small {
+  font-size: 10px;
+  text-align: center;
+  position: relative;
+  left: 75px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+hr {
+  text-align: center;
+}
+
+a {
+  font-family: "Raleway", sans-serif;
+  padding-right: 10px;
+  text-decoration: none;
+  color: rgb(90, 98, 117);
+}
+
+.temperature {
+  text-align: center;
+  font-family: "Roboto Flex", sans-serif;
+  color: rgb(90, 98, 117);
+}
+.degrees {
+  font-size: 40px;
+}
+
+.container {
+  background-color: rgba(247, 173, 222, 0.2);
+  border: 1px solid rgba(90, 98, 117, 0.2);
+  padding-bottom: 30px;
+  max-width: 1000px;
+}
+.col-3.main {
+  background-color: rgba(247, 173, 222, 0.267);
+  border: 1px solid rgba(90, 98, 117, 0.2);
+  padding: 50px 20px 66px;
+  margin: 40px;
+}
+
+.adds {
+  color: rgb(90, 98, 117);
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.w-icons {
+  line-height: 40px;
+}
+.cloud-sun.main {
+  width: 90px;
+}
+.other {
+  width: 80px;
+  display: block;
+  margin: 10px auto;
+}
+.adds-icon {
+  width: 50px;
+}
+
+.links {
+  margin-top: 20px;
+  font-family: "Roboto Flex", sans-serif;
+}
+.btn {
+  background-color: rgba(255, 181, 230, 0.756);
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  border: 1px solid rgba(90, 98, 117, 0.2);
+  padding: 5px 10px;
+}
+.btn:hover {
+  background-color: rgb(249, 117, 205);
+}
+.search {
+  max-width: 400px;
+  max-height: 40px;
+  background: rgba(255, 255, 255, 0.417);
+  border: 1px solid rgba(90, 98, 117, 0.2);
+  border-radius: 5px;
+}
+div.option {
+  font-size: 15px;
+  text-align: right;
+  position: relative;
+  right: 70px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+span.option:hover {
+  font-weight: bold;
+}
+
+.row.days {
+  max-width: 600px;
+  text-align: center;
+}
+.col.days {
+  background-color: rgba(247, 173, 222, 0.267);
+  border: 1px solid rgba(90, 98, 117, 0.2);
+  padding: 10px;
+  margin: 10px 0;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(90, 98, 117);
+}
+.col.days:hover {
+  position: relative;
+  bottom: 30px;
+  left: 30px;
+}
+
+.row.highlights {
+  max-width: 670px;
+  text-align: center;
+}
+.col-3.highlights {
+  background-color: rgba(247, 173, 222, 0.267);
+  border: 1px solid rgba(90, 98, 117, 0.2);
+  padding: 3px 0 12px;
+  margin: 0 49px 10px 0;
+
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgb(90, 98, 117);
+}
+.value {
+  font-weight: 400;
+  font-family: "Roboto Serif", serif;
+  font-size: 25px;
+  color: rgb(97, 54, 83);
+}
+.signature {
+  text-align: center;
+}
