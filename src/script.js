@@ -26,6 +26,14 @@ let day = days[now.getDay()];
 
 small.innerHTML = `${day} ${hours}:${minutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 //2
 function displayWeather(response) {
   console.log(response);
@@ -64,27 +72,36 @@ function displayWeather(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "2ff29bed3181c3526c35cc5408037f85";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(function (response) {
+    displayForecast(response);
+  });
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = ` <div class="row days">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col days">
-      ${day}
-      <img src="icons/cloud-sun.png" class="other" />
-      +14/+6
+      ${formatDay(forecastDay.dt)}
+      <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="90"
+        />
+      ${Math.round(forecastDay.temp.max)}°/${Math.round(forecastDay.temp.min)}°
     </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -130,7 +147,6 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Shanghai");
-displayForecast();
 
 //geolocation
 
