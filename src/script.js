@@ -62,6 +62,27 @@ function displayWeather(response) {
   celsiusTemperature = response.data.main.temp;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = ` <div class="row days">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col days">
+      ${day}
+      <img src="icons/cloud-sun.png" class="other" />
+      +14/+6
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "e8dec81490f528b6b7847357fa83bb2a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -101,6 +122,7 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Shanghai");
+displayForecast();
 
 //geolocation
 
