@@ -34,7 +34,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 function formatTime(timestamp) {
-  let date = new Date(timestamp * 10000);
+  let date = new Date(timestamp * 1000);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
