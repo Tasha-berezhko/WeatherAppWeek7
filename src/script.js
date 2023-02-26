@@ -33,6 +33,20 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+function formatTime(timestamp) {
+  let date = new Date(timestamp * 10000);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 //2
 function displayWeather(response) {
@@ -49,6 +63,9 @@ function displayWeather(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
+  document.querySelector("#clouds").innerHTML = Math.round(
+    response.data.clouds.all
+  );
   document.querySelector("#high").innerHTML = Math.round(
     response.data.main.temp_max
   );
@@ -58,6 +75,12 @@ function displayWeather(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#sunrise").innerHTML = `${formatTime(
+    response.data.sys.sunrise
+  )}`;
+  document.querySelector("#sunset").innerHTML = `${formatTime(
+    response.data.sys.sunset
+  )}`;
 
   let iconElement = document.querySelector("#icon");
 
